@@ -8,6 +8,18 @@
   <name>Enable Cors support</name>
   <description>Adds a web-fragment with the filter config for Cors support</description>
   <url>http://maven.apache.org</url>
+  <properties>
+    <api.version>1.1-SNAPSHOT</api.version>
+  </properties>
+  <dependencies>
+      <dependency>
+          <groupId>org.alfresco</groupId>
+          <artifactId>api-explorer</artifactId>
+          <version>${api.version}</version>
+          <scope>provided</scope>
+          <type>war</type>
+      </dependency>
+  </dependencies>
   <build>
       <resources>
         <resource>
@@ -15,7 +27,36 @@
           <filtering>true</filtering>
         </resource>
       </resources>
-      <plugins>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <version>2.10</version>
+            <executions>
+                <execution>
+                    <id>unpack-dependencies</id>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>unpack-dependencies</goal>
+                    </goals>
+                    <configuration>
+                        <includes>definitions/**/*.*</includes>
+                        <outputDirectory>${basedir}/src/main/resources/META-INF/resources/</outputDirectory>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.0.0</version>
+          <configuration>
+            <filesets>
+              <fileset>
+                <directory>${basedir}/src/main/resources/META-INF/resources/definitions</directory>
+              </fileset>
+            </filesets>
+          </configuration>
+        </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>2.6</version>

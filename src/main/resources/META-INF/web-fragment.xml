@@ -8,7 +8,7 @@
       </init-param>
       <init-param>
          <param-name>cors.allowOrigin</param-name>
-         <param-value>http://localhost</param-value>
+         <param-value>*</param-value>
       </init-param>
       <init-param>
          <param-name>cors.allowSubdomains</param-name>
@@ -37,5 +37,6 @@
       <url-pattern>/service/*</url-pattern>
       <url-pattern>/s/*</url-pattern>
       <url-pattern>/cmisbrowser/*</url-pattern>
+      <url-pattern>/definitions/*</url-pattern>
    </filter-mapping>
 </web-fragment>

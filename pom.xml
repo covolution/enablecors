@@ -5,9 +5,16 @@
   <artifactId>enablecors</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>enablecors</name>
+  <name>Enable Cors support</name>
+  <description>Adds a web-fragment with the filter config for Cors support</description>
   <url>http://maven.apache.org</url>
   <build>
+      <resources>
+        <resource>
+          <directory>src/main/resources</directory>
+          <filtering>true</filtering>
+        </resource>
+      </resources>
       <plugins>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>

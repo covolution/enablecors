@@ -30,7 +30,7 @@
          <param-name>cors.maxAge</param-name>
          <param-value>3600</param-value>
       </init-param>
-   </filter>-->
+   </filter>
 	 <filter-mapping>
       <filter-name>CORS</filter-name>
       <url-pattern>/api/*</url-pattern>
